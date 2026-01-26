@@ -1,0 +1,49 @@
+# Delphi build output
+*.dcu
+*.dcp
+*.dcpil
+*.bpl
+*.exe
+*.dll
+*.map
+*.res
+*.rsm
+*.apk
+*.aab
+*.app
+*.o
+*.dSYM
+
+# Local IDE files
+*.dproj.local
+*.identcache
+*.local
+*.stat
+*.dsk
+*.tvsconfig
+*.deployproj.local
+
+# Auto-generated backup files
+*.~*
+*.tmp
+*.bak
+
+# Build folders
+Win32/
+Win64/
+Debug/
+Release/
+iOSDevice64/
+iOSSimulator/
+Android/
+Android64/
+macOS/
+__history/
+__recovery/
+
+# IDE/User settings
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
