@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{E181273B-8249-4003-987B-3C7899F34269}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TawhaiAppSupport.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\DBRestore\DBRestoreUtility.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TawhaiAppSupport">
+        <MSBuild Projects="TawhaiAppSupport.dproj"/>
+    </Target>
+    <Target Name="TawhaiAppSupport:Clean">
+        <MSBuild Projects="TawhaiAppSupport.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TawhaiAppSupport:Make">
+        <MSBuild Projects="TawhaiAppSupport.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DBRestoreUtility">
+        <MSBuild Projects="..\..\DBRestore\DBRestoreUtility.dproj"/>
+    </Target>
+    <Target Name="DBRestoreUtility:Clean">
+        <MSBuild Projects="..\..\DBRestore\DBRestoreUtility.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DBRestoreUtility:Make">
+        <MSBuild Projects="..\..\DBRestore\DBRestoreUtility.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TawhaiAppSupport;DBRestoreUtility"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TawhaiAppSupport:Clean;DBRestoreUtility:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TawhaiAppSupport:Make;DBRestoreUtility:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
